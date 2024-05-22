@@ -1,0 +1,137 @@
+.header {
+  position: relative;
+  color: $main-light-color;
+  background-color: $main-dark-color;
+
+  &__container {
+    padding-top: 24px;
+    padding-bottom: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tablet-1024 {
+      padding-top: 27px;
+      padding-bottom: 26px;
+    }
+
+    @include mobile-576 {
+      padding-top: 25px;
+      padding-bottom: 24px;
+    }
+  }
+
+  .nav {
+    margin-left: -53px;
+
+    @include tablet-992 {
+      position: absolute;
+      margin-left: 0;
+      padding: 12px 27px 8px;
+      width: 100%;
+      left: 0;
+      bottom: -45px;
+      background-color: #4A4A4A;
+    }
+
+    @include mobile-576 {
+      padding: 14px 21px;
+    }
+
+    &__list {
+      display: flex;
+      font-family: $font-ttfirs;
+
+      @include tablet-992 {
+        justify-content: space-between;
+        padding-bottom: 5px;
+        overflow: scroll;
+      }
+
+      @include mobile-576 {
+        display: none;
+      }
+    }
+
+    &__item:not(:last-child) {
+      margin-right: 79px;
+
+      @include desktop-1200 {
+        margin-right: 33px;
+      }
+
+      @include tablet-992 {
+        margin-right: $gap;
+      }
+    }
+
+    &__link {
+      position: relative;
+      line-height: 21px;
+      z-index: 10;
+      transition: opacity 0.3s ease, color 0.3s ease;
+    }
+
+    &__link::after {
+      position: absolute;
+      content: "";
+      width: calc(100% + 10px);
+      height: 100%;
+      top: 0;
+      left: -5px;
+      z-index: -3;
+      background-color: $dark-orange-color;
+      opacity: 0;
+    }
+
+    &__link:focus {
+      outline: none;
+    }
+
+    &__link:focus::after {
+      opacity: 1;
+    }
+
+    &__link:hover {
+      color: $orange-color;
+    }
+
+    &__link:active::after {
+      opacity: 0;
+    }
+
+    &__link:active {
+      color: $orange-active-color;
+    }
+
+    &__burger {
+      display: none;
+
+      @include mobile-576 {
+        display: block;
+      }
+    }
+
+
+  }
+
+  &__search svg {
+    width: 25px;
+    height: 25px;
+    fill: $main-light-color;
+    transition: color .3s ease;
+
+    @include mobile-576 {
+      width: 20px;
+    height: 20px;
+    }
+  }
+
+  &__search:hover svg {
+    fill: $orange-color;
+  }
+
+  &__search:active svg {
+    fill: $orange-active-color;
+  }
+}

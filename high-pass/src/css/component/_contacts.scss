@@ -1,0 +1,264 @@
+.contacts {
+  @include mobile-576 {
+    padding-top: 34px;
+    padding-bottom: 50px;
+  }
+}
+
+.contacts__title {
+  margin-bottom: 22px;
+
+  @include mobile-576 {
+    margin-bottom: 8px;
+  }
+}
+
+.contacts-grid {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(3, 1fr);
+
+  @include tablet-1024 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include tablet-768 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include mobile-576 {
+    grid-template-columns: 1fr;
+  }
+
+  .map {
+    position: relative;
+    min-height: 460px;
+    background-image: url(../img/map.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 460px;
+
+    @include tablet-1024 {
+      grid-column: span 5;
+      display: flex;
+      align-items: flex-end;
+      background-image: url(../img/map-1024.jpg);
+    }
+
+    @include tablet-768 {
+      grid-column: span 6;
+    }
+
+    @include mobile-576 {
+      grid-column: span 1;
+      min-height: 477px;
+      left: 50%;
+      right: 50%;
+      margin-right: -50vw;
+      margin-left: -50vw;
+      width: 100vw;
+      background-image: url(../img/map-320.jpg);
+    }
+
+    &__info {
+      position: relative;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 410px;
+      height: 100%;
+      color: $light-grey-color;
+      background-color: rgba(32, 32, 32, 0.85);
+
+      @include tablet-1024 {
+        padding: 25px 30px 21px;
+        width: 100%;
+        height: auto;
+      }
+
+      @include mobile-576 {
+        padding: 26px 19px 14px;
+      }
+
+      .map__btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        svg {
+          fill: $grey-color;
+
+          rect {
+            fill: $main-light-color;
+          }
+        }
+      }
+
+      .map__title {
+        margin-bottom: 5px;
+        @include title-h3 ();
+        color: $main-light-color;
+
+        @include tablet-1024 {
+          max-width: 300px;
+        }
+
+        @include mobile-576 {
+          margin-bottom: 10px;
+        }
+      }
+
+      .map__address {
+        font-style: normal;
+        line-height: 28px;
+
+        @include tablet-1024 {
+          max-width: 315px;
+        }
+
+        @include tablet-768 {
+          max-width: 410px;
+        }
+
+        @include mobile-576 {
+          max-width: 267px;
+          line-height: 18px;
+        }
+
+        .address-phone {
+          display: inline-block;
+          padding-left: 22px;
+          font-family: $font-ttfirs;
+          color:$orange-color;
+          line-height: 22px;
+          background-image: url(../img/phone.svg);
+          background-repeat: no-repeat;
+          background-position: left center;
+          background-size: 16.5px 16.5px;
+
+          &:hover {
+            color: $orange-active-color;
+          }
+
+          @include tablet-1024 {
+            margin-left: 8px;
+            padding-left: 19px;
+          }
+
+          @include tablet-768 {
+            margin-left: 0;
+          }
+
+          @include mobile-576 {
+            display: block;
+            margin-top: 9px;
+          }
+        }
+      }
+    }
+
+    &__point {
+      position: absolute;
+      top: 95px;
+      right: 227px;
+
+      @include tablet-1024 {
+        top: 96px;
+        right: 94px;
+      }
+
+      @include mobile-576 {
+        top: 100px;
+        right: 45px;
+      }
+    }
+  }
+
+  .contacts-form {
+    margin-top: -7px;
+
+    @include tablet-1024 {
+      grid-column: 6 / span 3;
+    }
+
+    @include tablet-768 {
+      grid-column: span 4;
+    }
+
+    @include mobile-576 {
+      grid-column: span 1;
+    }
+
+    &__title {
+      @include title-h3 ();
+      margin-bottom: 5px;
+
+      @include mobile-576 {
+        margin-bottom: 9px;
+      }
+    }
+
+    &__descr {
+      margin-bottom: 14px;
+      line-height: 22px;
+      color: $grey-color;
+
+      @include mobile-576 {
+        line-height: 18px;
+      }
+    }
+
+    &__input {
+      margin-bottom: 20px;
+      padding-left: 22px;
+      padding-right: 22px;
+      width: 100%;
+      height: 50px;
+      line-height: 19px;
+      color: $main-dark-color;
+      background-color: $form-backgr-light;
+      border: none;
+
+      @include mobile-576 {
+        height: 40px;
+      }
+    }
+
+    &__textarea {
+      margin-bottom: 17px;
+      padding: 15px 23px;
+      width: 100%;
+      height: 150px;
+      line-height: 19px;
+      color: $main-dark-color;
+      background-color: $form-backgr-light;
+      border: none;
+
+      @include mobile-576 {
+        padding-top: 11px;
+      }
+    }
+
+    &__textarea::placeholder, &__input::placeholder {
+      color: $grey-color;
+      transition: color .3s ease;
+    }
+
+    &__textarea:focus, &__input:focus {
+      outline: none;
+    }
+
+    &__textarea:hover::placeholder, &__input:hover::placeholder {
+      color: $orange-color;
+    }
+
+    &__textarea:active, &__input:active {
+      outline: 1px solid $orange-color;
+    }
+
+    &__textarea:active::placeholder, &__input:active::placeholder {
+      color: $grey-color;
+    }
+  }
+}

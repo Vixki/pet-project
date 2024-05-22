@@ -1,0 +1,361 @@
+.projects {
+  padding-bottom: 0;
+
+  @include mobile-576 {
+    padding-top: 50px;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+
+    @include mobile-576 {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat(12, 1fr);
+
+    @include desktop-1200 {
+      grid-template-columns: repeat(8, 1fr);
+      row-gap: 24px;
+      grid-auto-flow: dense;
+    }
+
+    @include tablet-992 {
+      grid-template-columns: repeat(6, 1fr);
+      row-gap: 0;
+      grid-auto-rows: auto 25px auto 30px auto 24px;
+    }
+
+    @include mobile-576 {
+      grid-template-columns: 1fr;
+      row-gap: 25px;
+      grid-auto-rows: auto;
+    }
+
+    .row-gap {
+      display: none;
+      grid-column: span 6;
+
+      @include tablet-992 {
+        display: block;
+      }
+
+      @include mobile-576 {
+        display: none;
+      }
+    }
+
+    .projects__card {
+      position: relative;
+      min-height: 300px;
+
+      @include tablet-1024 {
+        min-height: 285px;
+      }
+
+      @include mobile-576 {
+        min-height: 278px;
+      }
+
+      .projects-card__descr {
+        display: block;
+        margin-bottom: 10px;
+        line-height: 22px;
+
+        @include mobile-576 {
+          font-size: 16px;
+        }
+      }
+
+      .projects-card__date {
+        margin-top: auto;
+        @include date ();
+        color: $grey-color;
+        background-image: url(../img/calendar.svg);
+      }
+
+      .projects-card__tag {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        padding: 6px 14px;
+
+        @include mobile-576 {
+          top: 5px;
+          right: 5px;
+          padding: 4px 14px;
+        }
+      }
+    }
+
+    .projects-card {
+      padding-top: 202px;
+      display: flex;
+      flex-direction: column;
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size: 100% 184px;
+
+      @include mobile-576 {
+        grid-column: span 1;
+      }
+    }
+
+    .projects-card-big {
+      padding: 30px;
+      padding-top: 22px;
+      grid-column: span 6;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: #4A4A4A;
+      color: $main-light-color;
+
+      @include tablet-1024 {
+        padding-top: 32px;
+        min-height: 307px;
+      }
+
+      @include tablet-992 {
+        min-height: 300px
+      }
+
+      @include mobile-576 {
+        min-height: 422px;
+        justify-content: flex-end;
+      }
+
+      &__date {
+        @include date ();
+        color: $main-light-color;
+        background-image: url(../img/calendar_white.svg);
+
+        @include mobile-576 {
+          margin-bottom: 7px;
+        }
+      }
+
+      .projects-card__title {
+        margin-bottom: 7px;
+        max-width: 293px;
+        line-height: 24px;
+
+        @include mobile-576 {
+          margin-bottom: 11px;
+          font-size: 24px;
+        }
+      }
+
+      .projects-card__descr {
+        max-width: 293px;
+
+        @include mobile-576 {
+          margin-bottom: 14px;
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+
+      .projects-card__btn {
+        display: inline-block;
+        margin-top: auto;
+        padding: 13px 20px;
+        line-height: 19px;
+        border: 3px solid $orange-color;
+        transition: background-color .3s ease, border-color .3s ease;
+
+        @include mobile-576 {
+          margin-top: 0;
+          padding: 11px 19px;
+          line-height: 16px;
+        }
+      }
+
+      .projects-card__btn:focus {
+        outline: none;
+        background-color: $dark-orange-color;
+      }
+
+      .projects-card__btn:hover {
+        background-color: $orange-color;
+      }
+
+      .projects-card__btn:active {
+        background-color: $orange-active-color;
+        border-color: $orange-active-color;
+      }
+    }
+
+    .project-1 {
+      background-image: url(../img/project-1.jpg);
+
+      @include mobile-576 {
+        background-image: url(../img/project-1-320.jpg);
+      }
+
+      .projects-card__descr {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+
+        @include tablet-1024 {
+          -webkit-line-clamp: 2;
+        }
+
+        @include tablet-768 {
+          -webkit-line-clamp: 3;
+        }
+      }
+    }
+
+    .project-2 {
+      background-image: url(../img/project-2.jpg);
+
+      @include mobile-576 {
+        background-image: url(../img/project-2-320.jpg);
+      }
+
+      .projects-card__descr {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+
+        @include tablet-1024 {
+          -webkit-line-clamp: 2;
+        }
+
+        @include tablet-768 {
+          -webkit-line-clamp: 3;
+        }
+
+        @include mobile-576 {
+          -webkit-line-clamp: 2;
+        }
+      }
+    }
+
+    .project-3 {
+      background-image: url(../img/project-3.jpg);
+
+      @include desktop-1200 {
+        grid-column: span 4;
+        background-image: url(../img/project-3-1024.jpg);
+      }
+
+      @include tablet-992 {
+        grid-column: span 2;
+        background-image: url(../img/project-3-768.jpg);
+      }
+
+      @include mobile-576 {
+        grid-column: span 1;
+        background-image: url(../img/project-3-320.jpg);
+      }
+
+      .projects-card__descr {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+
+        @include tablet-1024 {
+          -webkit-line-clamp: 2;
+        }
+      }
+    }
+
+    .project-4 {
+      background-image: url(../img/project-4.jpg);
+
+      @include desktop-1200 {
+        grid-column: span 5;
+      }
+
+      @include tablet-992 {
+        grid-column: span 6;
+      }
+
+      @include mobile-576 {
+        grid-column: span 1;
+        background-image: url(../img/project-4-320.jpg);
+      }
+    }
+
+    .project-5 {
+      background-image: url(../img/project-5.jpg);
+
+      @include desktop-1200 {
+        grid-column: 4 / span 5;
+      }
+
+      @include tablet-992 {
+        grid-column: span 6;
+        grid-row: 7;
+      }
+
+      @include mobile-576 {
+        grid-column: span 1;
+        background-image: url(../img/project-5-320.jpg);
+      }
+    }
+
+    .project-6 {
+      background-image: url(../img/project-6.jpg);
+
+      @include desktop-1200 {
+        background-image: url(../img/project-6-1024.jpg);
+      }
+
+      @include tablet-992 {
+        min-height: 307px;
+      }
+
+      @include mobile-576 {
+        grid-column: span 1;
+        min-height: auto;
+        background-image: url(../img/project-6-320.jpg);
+      }
+
+      .projects-card__descr {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    .project-7 {
+      background-image: url(../img/project-7.jpg);
+
+      @include desktop-1200 {
+        background-image: url(../img/project-7-1024.jpg);
+      }
+
+      @include tablet-992 {
+        min-height: 307px;
+      }
+
+      @include mobile-576 {
+        grid-column: span 1;
+        min-height: auto;
+        background-image: url(../img/project-7-320.jpg);
+      }
+
+      .projects-card__descr {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+}
