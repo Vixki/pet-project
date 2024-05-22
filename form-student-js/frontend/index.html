@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список студентов</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="main.js" defer></script>
+  <style>
+    .btn {
+      padding: 10px 22px;
+      background-color: #838a90;
+    }
+    .cursor {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container py-3">
+    <div class="top-section row mb-5 column-gap-4">
+      <form class="col" id="create-student-form">
+        <h3 class="text-dark-emphasis mb-4">Форма добавления студента</h3>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control bg-light" id="inputName" placeholder="Имя" aria-describedby="inputNameFeedback">
+          <label for="inputName">Имя</label>
+          <div id="inputNameFeedback" class="invalid-feedback">
+            Пожалуйста, введите имя студента.
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" placeholder="Фамилия" id="inputSurname"
+            aria-describedby="inputSurnameFeedback">
+          <label for="inputSurname" class="form-label">Фамилия</label>
+          <div id="inputSurnameFeedback" class="invalid-feedback">
+            Пожалуйста, введите фамилию студента.
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control bg-light" placeholder="Отчество" id="inputLastname"
+            aria-describedby="inputLastnameFeedback">
+          <label for="inputLastname" class="form-label">Отчество</label>
+          <div id="inputLastnameFeedback" class="invalid-feedback">
+            Пожалуйста, введите отчество студента.
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" placeholder="Дата рождения" id="inputBirthDate" min="1900-01-01"
+            aria-describedby="inputBirthDateFeedback">
+          <label for="inputBirthDate" class="form-label">Дата рождения</label>
+          <div id="inputBirthDateFeedback" class="invalid-feedback">
+            Пожалуйста, введите дату рождения студента.
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="number" min="2000" class="form-control bg-light" placeholder="Год начала обучения" id="inputStudyStart"
+            aria-describedby="inputStudyStartFeedback">
+          <label for="inputStudyStart" class="form-label">Год начала обучения</label>
+          <div id="inputStudyStartFeedback" class="invalid-feedback">
+            Пожалуйста, введите год начала обучения студента.
+          </div>
+        </div>
+        <div class="form-floating mb-5">
+          <input type="text" class="form-control" placeholder="Факультет" id="inputFaculty"
+            aria-describedby="inputFacultyFeedback">
+          <label for="inputFaculty" class="form-label">Факультет</label>
+          <div id="inputFacultyFeedback" class="invalid-feedback">
+            Пожалуйста, введите факультет.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-secondary" id="btnForm">Добавить студента</button>
+      </form>
+
+      <div class="filter col align-self-end">
+        <h3 class="text-dark-emphasis">Фильтрация таблицы</h3>
+        <div class="mb-3">
+          <label for="search-name" class="form-label">Введите фамилию, имя или отчество</label>
+          <input type="text" class="form-control form-control-sm bg-light" id="search-name">
+        </div>
+        <div class="mb-3">
+          <label for="search-faculty" class="form-label">Введите факультет</label>
+          <input type="text" class="form-control form-control-sm border-secondary-subtle" id="search-faculty">
+        </div>
+        <div class="mb-3">
+          <label for="search-year-start" class="form-label">Введите год начала обучения</label>
+          <input type="text" class="form-control form-control-sm bg-light" id="search-year-start">
+        </div>
+        <div>
+          <label for="search-year-end" class="form-label">Введите окончания обучения</label>
+          <input type="text" class="form-control form-control-sm border-secondary-subtle" id="search-year-end">
+        </div>
+      </div>
+    </div>
+    <div class="table-section">
+      <table class="table table-light table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="text-secondary-emphasis" scope="col">#</th>
+            <th class="text-secondary-emphasis cursor" tabindex="0" scope="col" id="th-full-name">ФИО</th>
+            <th class="text-secondary-emphasis cursor" tabindex="0" scope="col" id="th-bday">Дата рождения и возраст</th>
+            <th class="text-secondary-emphasis cursor" tabindex="0" scope="col" id="th-years-study">Годы обучения и номер курса</th>
+            <th class="text-secondary-emphasis cursor" tabindex="0" scope="col" id="th-faculty">Факультет</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+        </tbody>
+      </table>
+      <p>Чтобы удалить студента из базы, нажмите на ФИО студнта</p>
+    </div>
+
+  </div>
+</body>
+
+</html>
