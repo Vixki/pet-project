@@ -1,0 +1,60 @@
+@import '_variables.scss';
+
+@mixin title-h3 {
+  font-family: $font-ttfirs;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 22px;
+
+  @include mobile-576 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@mixin date {
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 22px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: auto;
+}
+
+// adaptive-screens
+
+@mixin desktop-1366 {
+  @media (max-width: 1366px) {
+        @content;
+  }
+}
+
+@mixin desktop-1200 {
+  @media (max-width: 1200px) {
+        @content;
+  }
+}
+
+@mixin tablet-1024 {
+  @media (max-width: 1024px) {
+        @content;
+  }
+}
+
+@mixin tablet-992 {
+  @media (max-width: 992px) {
+        @content;
+  }
+}
+
+@mixin tablet-768 {
+  @media (max-width: 768px) {
+        @content;
+  }
+}
+
+@mixin mobile-576 {
+  @media (max-width: 576px) {
+        @content;
+  }
+}
